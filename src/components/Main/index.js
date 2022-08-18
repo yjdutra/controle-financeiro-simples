@@ -3,6 +3,8 @@ import { Resume } from "../Resume";
 import { Form } from "../Form";
 import { Container, Content } from "./styles";
 
+import { getFromStorage, setAtStorage } from "../../utils/LocalStorage";
+
 import {
   FaRegArrowAltCircleUp,
   FaRegArrowAltCircleDown,
@@ -10,7 +12,8 @@ import {
 } from "react-icons/fa";
 
 export function Main() {
-  const data = localStorage.getItem("transactions");
+  const data = getFromStorage("transactions");
+
   const [transactionsList, setTransactionsList] = useState(
     data ? JSON.parse(data) : []
   );
@@ -43,7 +46,8 @@ export function Main() {
 
     setTransactionsList(newArrayTransactions);
 
-    localStorage.setItem("transactions", JSON.stringify(newArrayTransactions));
+    const newArrayStringTransactions = JSON.stringify(newArrayTransactions);
+    setAtStorage("transactions", newArrayStringTransactions);
   };
 
   return (
