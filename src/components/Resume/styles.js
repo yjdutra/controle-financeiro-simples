@@ -8,6 +8,8 @@ export const Container = styled.div`
 
   background-color: #fff;
   box-shadow: 0 1px 4px 0 rgba(192,208,230,0.8);
+
+  border-radius: 5px;
 `;
 
 export const Title = styled.p`

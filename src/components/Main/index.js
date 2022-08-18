@@ -1,5 +1,5 @@
 import { Resume } from "../Resume";
-import { InputAccount } from "../InputAccount";
+import { Form } from "../Form";
 import { Container, Content } from "./styles";
 
 export function Main() {
@@ -11,7 +11,7 @@ export function Main() {
         <Resume type={"total"} />
       </Content>
 
-      <InputAccount />
+      <Form />
     </Container>
   );
 }
