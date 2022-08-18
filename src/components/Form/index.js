@@ -1,12 +1,12 @@
 import { useState } from "react";
-
-/* import { Container, Describe, Value, Type, Add, Label } from "./styles"; */
 import * as C from "./styles";
 
-export function Form() {
+export function Form({ handleAdd }) {
   const [desc, setDesc] = useState("");
   const [amount, setAmount] = useState("");
   const [isExpense, setExpense] = useState(false);
+
+  const generateID = () => Math.round(Math.random() * 1000);
 
   const handleSave = () => {
     if (!desc || !amount) {
@@ -17,6 +17,17 @@ export function Form() {
       return;
     }
   };
+
+  const transaction = {
+    id: generateID(),
+    desc: desc,
+    amount: amount,
+    expense: isExpense,
+  };
+
+  handleAdd(transaction);
+  setDesc("");
+  setAmount("");
 
   return (
     <C.Container>
@@ -57,24 +68,3 @@ export function Form() {
     </C.Container>
   );
 }
-
-/* export function Form() {
-  return (
-    <Container>
-      <Describe placeholder="Descrição" />
-      <Value placeholder="Valor" />
-
-      <Label>
-        <Type />
-        Saida
-      </Label>
-
-      <Label>
-        <Type />
-        Entrada
-      </Label>
-
-      <Add> Send </Add>
-    </Container>
-  );
-} */

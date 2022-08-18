@@ -17,12 +17,14 @@ color: #000;
 `;
 
 
-export const Icon = styled.span`
+export const Icons = styled.span`
 width: 10px;
 height: 10px;
 color: #000;
 padding: 10px;
 margin-right: 20px;
+
+font-size: 25px;
 `;
 
 export const Content = styled.div`
@@ -31,6 +33,10 @@ display: flex;
 padding: 5px;
 
 justify-content: space-between;
+
+@media (max-width: 750px){
+  width: 20%;
+}
 `;
 
 export const Amount = styled.h2`
